@@ -10,7 +10,8 @@
     "dependencies":{
         "express":"3.0.x",
         "jade":"*",
-        "mongoose":"3.5.x"
+        "mongoose":"3.5.x",
+        "pretty-data":"0.40.0"
     },
     "devDependencies":{
         "vows":"0.5.x",
