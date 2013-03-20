@@ -3,8 +3,6 @@ module.exports = exports = (function () {
         var onGetAndOptions = function () {
             res.format({
                 'multipart/nav-data':function () {
-                    console.dir(req.headers);
-                    console.dir(res._headers);
                     res.end('');
                 }
             });
