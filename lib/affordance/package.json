@@ -1,5 +1,5 @@
 {
-    "name":"affordance",
+    "name":"apigen",
     "description":"RESTful API Response Generator in the application/affordance media type.",
     "author":"Tony Tahmouch ttahmouch@gmail.com",
     "version":"0.0.1",
