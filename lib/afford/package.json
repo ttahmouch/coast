@@ -1,0 +1,16 @@
+{
+    "name":"apigen",
+    "description":"RESTful API Response Generator in the application/affordance media type.",
+    "author":"Tony Tahmouch ttahmouch@gmail.com",
+    "version":"0.0.1",
+    "private":true,
+    "scripts":{
+        "start":"node index"
+    },
+    "dependencies":{
+        "commander":"1.1.1"
+    },
+    "devDependencies":{
+    },
+    "engine":"node >= 0.6.6"
+}
