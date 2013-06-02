@@ -37,3 +37,6 @@ nbproject
 .idea
 node_modules
 dist
+
+#Affordance project generated files
+api
