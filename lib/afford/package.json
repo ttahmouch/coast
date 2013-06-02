@@ -12,5 +12,5 @@
     },
     "devDependencies":{
     },
-    "engine":"node >= 0.6.6"
+    "engine":"node >= 0.8.14"
 }
