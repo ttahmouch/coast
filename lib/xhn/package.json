@@ -1,0 +1,15 @@
+{
+    "name":"eXtensible Hypermedia Notation - XHN",
+    "description":"Library that allows for the programmatic modeling, encoding, and decoding of hypermedia affordance sets.",
+    "author":"Tony Tahmouch ttahmouch@gmail.com",
+    "version":"0.0.1",
+    "private":true,
+    "scripts":{
+        "start":"node index"
+    },
+    "dependencies":{
+    },
+    "devDependencies":{
+    },
+    "engine":"node >= 0.8.14"
+}
