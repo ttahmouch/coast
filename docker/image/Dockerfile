@@ -15,11 +15,13 @@ RUN groupadd git
 RUN useradd --gid git --shell /usr/bin/git-shell --home /home/git --create-home git
 
 # Bootstrap Git Remote and SSH
-RUN git --bare init /home/git/hapi.git
-RUN mkdir -p /var/run/sshd && mkdir -p /home/git/.ssh && touch /home/git/.ssh/authorized_keys
-ADD etc/ssh/sshd_config /etc/ssh/sshd_config
+ADD etc/ssh/sshd_config.awk /etc/ssh/
 ADD git-shell-commands/ /home/git/git-shell-commands/
 ADD bin/ /opt/bin/
+RUN git --bare init /home/git/default.git
+RUN mkdir -p /var/run/sshd && mkdir -p /home/git/.ssh && touch /home/git/.ssh/authorized_keys
+RUN cp /etc/ssh/sshd_config /etc/ssh/sshd_config.old && chmod a-w /etc/ssh/sshd_config.old
+RUN cat /etc/ssh/sshd_config.old | awk -f /etc/ssh/sshd_config.awk > /etc/ssh/sshd_config
 EXPOSE 22
 
 CMD "/opt/bin/entry"
