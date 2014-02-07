@@ -1,18 +1,11 @@
 #!/bin/sh
 
-if tty -s
-then
-	echo "Run 'help' for help, or 'exit' to leave.  Available commands:"
-else
-	echo "Run 'help' for help.  Available commands:"
-fi
-
+# Log All Available Commands from the Git Shell Commands Directory.
+echo "Available commands:"
 cd "$(dirname "$0")"
-
-for cmd in *
+for FILE in *
 do
-	case "$cmd" in
-	help) ;;
-	*) [ -f "$cmd" ] && [ -x "$cmd" ] && echo "$cmd" ;;
-	esac
+    echo "$FILE"
 done
+# Exit is an Available Command in a TTY.
+echo "exit"

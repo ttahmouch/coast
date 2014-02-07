@@ -1,0 +1,39 @@
+#!/bin/sh
+
+if [ "$1" = "--add" ] && [ -n "$2" ]
+then
+    # Create a temporary file to store the Public Key because SSH Keygen does NOT support piping.
+    KEYFILE=$(tempfile)
+    # Concatenate the Public Key from the Arguments Vector Ignoring the First Argument.
+    KEY=""
+    for ARGUMENT in "$@"
+    do
+        if [ "$ARGUMENT" != "--add" ]
+        then
+            KEY="$KEY$ARGUMENT "
+        fi
+    done
+    # Strip the Trailing Space.
+    KEY=${KEY% }
+    # Generate a Fingerprint from the Public Key.
+    echo "$KEY" > $KEYFILE
+    FINGERPRINT=$(ssh-keygen -lf $KEYFILE)
+    # Check if a Valid Fingerprint was Generated.
+    # If a Valid Fingerprint was NOT generated, then exit.
+    if [ $(echo "$FINGERPRINT" | egrep -c '(R|D)SA') -eq 0 ]
+    then
+        echo "Please Enter a Valid SSH Public Key."
+        rm $KEYFILE
+        exit 1
+    fi
+    # Else, the Public Key is Valid, and should be appended to the Authorized Keys file.
+    cd
+    cat $KEYFILE >> .ssh/authorized_keys
+    rm $KEYFILE
+    # Display the Generated Fingerprint to the User.
+    echo "Added SSH Public Key with the Fingerprint:"
+    echo $FINGERPRINT
+else
+    echo "Please Enter a Supported Option:"
+    echo "--add <public key>"
+fi
