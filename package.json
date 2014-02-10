@@ -1,0 +1,14 @@
+{
+    "name": "hapi",
+    "description": "Hypermedia API Generator with support for multiple protocols and media types.",
+    "author": "Tony Tahmouch tony@hapi.co",
+    "version": "0.0.1",
+    "engines": {
+        "node": "0.10.x"
+    },
+    "dependencies": {
+        "xhn": "*",
+        "xhb": "*",
+        "xop": "*"
+    }
+}
