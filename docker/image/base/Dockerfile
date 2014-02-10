@@ -5,12 +5,12 @@ FROM ubuntu:latest
 MAINTAINER Tony J. Tahmouch <tony@hapi.co>
 
 # Install Git and SSH
-RUN apt-get update
-RUN apt-get install -q -y git openssh-server
+RUN apt-get update && \
+    apt-get install -q -y git openssh-server
 
 # Create Git Shell User
-RUN groupadd git
-RUN useradd --gid git \
+RUN groupadd git && \
+    useradd --gid git \
             --shell /usr/bin/git-shell \
             --home /home/git \
             --create-home \
@@ -22,8 +22,8 @@ RUN mkdir -p /var/run/sshd && \
     mkdir -p /home/git/.ssh && \
     touch /home/git/.ssh/authorized_keys && \
     chgrp git /home/git/.ssh/authorized_keys && \
-    chmod g+rw /home/git/.ssh/authorized_keys
-RUN cp /etc/ssh/sshd_config /etc/ssh/sshd_config.old && \
+    chmod g+rw /home/git/.ssh/authorized_keys && \
+    cp /etc/ssh/sshd_config /etc/ssh/sshd_config.old && \
     chmod a-w /etc/ssh/sshd_config.old && \
     cat /etc/ssh/sshd_config.old | awk -f /etc/ssh/sshd_config.awk > /etc/ssh/sshd_config
 EXPOSE 22
@@ -31,8 +31,8 @@ EXPOSE 22
 # Prepare Git
 ADD git-shell-commands/ /home/git/git-shell-commands/
 ADD hooks/ /home/git/.git-templates/hooks/
-RUN git config --global init.templatedir '/home/git/.git-templates'
-RUN git --bare init /home/git/app.git && \
+RUN git config --global init.templatedir '/home/git/.git-templates' && \
+    git --bare init /home/git/app.git && \
     chgrp -hR git /home/git/app.git && \
     chmod -R g+rwx /home/git/app.git
 
