@@ -1,6 +1,6 @@
 .PHONY: build run tty rm rmi
 
-b = -no-cache=true -rm=true
+b = -rm=true
 y = -i -t
 s = hapi
 t = ${s}/${n}
