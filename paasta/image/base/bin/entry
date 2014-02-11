@@ -1,7 +1,0 @@
-#!/bin/sh
-# Add the SSH Public Key if it exists.
-if [ -n "$SSHKEY" ]; then
-    echo "$SSHKEY" >> /home/git/.ssh/authorized_keys
-fi
-# Start the SSH Daemon.
-/usr/sbin/sshd -D
