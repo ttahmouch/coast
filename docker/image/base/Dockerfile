@@ -6,7 +6,9 @@ MAINTAINER Tony J. Tahmouch <tony@hapi.co>
 
 # Install Git and SSH
 RUN apt-get update && \
-    apt-get install -q -y git openssh-server
+    apt-get install -q -y git \
+                          openssh-server \
+                          make
 
 # Create Git Shell User
 RUN groupadd git && \
