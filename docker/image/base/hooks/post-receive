@@ -1,3 +1,13 @@
 #!/bin/sh
-export GIT_WORK_TREE=/home/path/to/your/www
-git checkout -f
+
+# Install Application to Temporary Directory.
+TEMPDIR=/home/git/temp
+
+# Clean the Temporary Directory.
+rm -rf $TEMPDIR && mkdir -p $TEMPDIR
+
+# Checkout a Clean Working Tree of Master to the Directory.
+git --work-tree=$TEMPDIR checkout -f
+
+# Deploy the Application with Make, and Ignore Errors. Make is assumed for all Deployments.
+make -i -C $TEMPDIR
