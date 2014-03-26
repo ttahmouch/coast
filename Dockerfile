@@ -11,8 +11,8 @@ RUN rm -rfv /home/git/app/.git/ && \
     usermod -s /bin/bash git && \
     su git -c "cd /home/git/app/ && \
                git init && \
-               git config user.email "git@hapi.co" && \
-               git config user.name "git" && \
+               git config user.email 'git@hapi.co' && \
+               git config user.name 'git' && \
                git add --all && \
                git commit -m 'Initial Commit.' && \
                git remote add origin /home/git/app.git/ && \
