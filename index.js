@@ -7,15 +7,14 @@
 (function () {
     var fs = require('fs'),
         path = require('path'),
-        xhn = require('xhn'),
-        xhb = require('xhb'),
-        xop = require('xop'),
+        hypermedia = require('hypermedia'),
+        slop = require('slop'),
         globalObjects = 'global,process,console,setTimeout,clearTimeout,setInterval,clearInterval,Buffer',
         moduleObjects = 'require,__filename,__dirname,module,exports',
         body = 'var ' + globalObjects + ',' + moduleObjects + ';\r\nreturn ',
-        hypermediator = xhb.hypermediator,
-        plugin = xhb.plugin,
-        argo = xhb.argo;
+        hypermediator = hypermedia.hypermediator,
+        plugin = hypermedia.plugin,
+        argo = hypermedia.argo;
 
     /**
      * Process.argv will be an array.
@@ -39,7 +38,7 @@
      * - {boolean} true
      * - {boolean} false
      */
-    var options = xop().parse(process.argv),
+    var options = slop().parse(process.argv),
         hapi = options.get('hapi'),
         port = options.get('port'),
         host = options.get('host'),
@@ -102,7 +101,7 @@
              * TODO: Change to higher-level, external Domain Specific Language that can be tokenized.
              */
             try {
-                hapi = new Function('hapi', body + hapi)(xhn.hapi);
+                hapi = new Function('hapi', body + hapi)(hypermedia.hapi);
             } catch (e) {
                 hapi = null;
                 console.log(e);
@@ -113,8 +112,8 @@
              * Library defaults to Argo.
              * Supporting routers like ExpressJS will need new Plugins.
              */
-            if (xhn.hapi.isPrototypeOf(hapi)) {
-                hypermediator(plugin.isPrototypeOf(xhb[lib]) ? xhb[lib] : argo)
+            if (hypermedia.hapi.isPrototypeOf(hapi)) {
+                hypermediator(plugin.isPrototypeOf(hypermedia[lib]) ? hypermedia[lib] : argo)
                     .setPort(port)
                     .setHost(host)
                     .mediate(hapi);
