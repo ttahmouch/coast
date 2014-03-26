@@ -1,13 +1,41 @@
 {
     "name": "hapi",
-    "description": "Hypermedia API Generator with support for multiple protocols and media types.",
-    "author": "Tony Tahmouch tony@hapi.co",
+    "description": "Hypermedia API with support for multiple protocols, media types, and routing engines.",
+    "author": "Tony Tahmouch <tony@hapi.co>",
+    "licenses": [
+        {
+            "type": "GPL-2.0+",
+            "url": "https://github.com/ttahmouch/hapi/blob/master/LICENSE.md"
+        }
+    ],
     "version": "0.0.1",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo 'Error: no test specified' && exit 1"
+    },
     "engines": {
         "node": "0.10.x"
     },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/ttahmouch/hapi.git"
+    },
     "dependencies": {
-        "argo": "0.4.9",
-        "argo-url-router": "0.0.4"
+        "slop": "0.0.1",
+        "hypermedia": "0.0.1"
+    },
+    "keywords": [
+        "hapi",
+        "hypermedia",
+        "api",
+        "rest",
+        "restful",
+        "http",
+        "argo",
+        "express",
+        "naval"
+    ],
+    "bugs": {
+        "url": "https://github.com/ttahmouch/hapi/issues"
     }
 }
