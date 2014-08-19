@@ -1,17 +1,23 @@
-Hapi
-====
+Coast
+=====
 
-Hapi is a hypermedia API driven by any media type, and any HTTP router, supported by the Hypermedia library.
+Coast is a convention-over-configuration platform for building RESTful APIs with Node.JS and XMLHttpRequest.
 
 ## Installation
 
-    cd paasta
-    make build n=hapi
-    make run n=hapi r="-d -p 22 -p 8080 -e SSHKEY='KEY'"
+    which npm   # Installed?
+    which node  # Installed?
+    which coast # Installed?
+    # Install npm & node >=0.10 from http://nodejs.org/download/
+    # Install coast from npm globally. This drops modules in {prefix}/lib/node_modules, and puts executable files in
+    # {prefix}/bin, where {prefix} is usually something like /usr/local. It also installs man pages in
+    # {prefix}/share/man, if they’re supplied.
+    npm install coast -g
 
 ## Usage
 
-    curl http://*.hapi.co
+    coast --debug --dir=/path/to/api.json/and/handler/subdirectories
+    curl http://127.0.0.1:8080/
 
 ## Tests
 
@@ -22,7 +28,3 @@ No unit tests are currently present. Eventually:
 ## Contributing
 
 In lieu of a formal style guideline, take care to maintain the existing coding style.
-
-## Release History
-
-+ 0.0.1 Initial release
