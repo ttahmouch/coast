@@ -1,41 +1,47 @@
 {
-    "name": "hapi",
-    "description": "Hypermedia API with support for multiple protocols, media types, and routing engines.",
+    "name": "coast",
+    "description": "Coast is a convention-over-configuration platform for building RESTful APIs with Node.JS and XHR.",
     "author": "Tony Tahmouch <tony@hapi.co>",
     "licenses": [
         {
-            "type": "GPL-2.0+",
-            "url": "https://github.com/ttahmouch/hapi/blob/master/LICENSE.md"
+            "type": "MIT",
+            "url": "https://github.com/ttahmouch/coast/blob/master/LICENSE.md"
         }
     ],
-    "version": "0.0.1",
+    "version": "1.0.0",
     "main": "index.js",
+    "bin": {
+        "coast": "./index.js"
+    },
     "scripts": {
         "test": "echo 'Error: no test specified' && exit 1"
     },
     "engines": {
-        "node": "0.10.x"
+        "node": ">=0.10"
     },
     "repository": {
         "type": "git",
-        "url": "git://github.com/ttahmouch/hapi.git"
+        "url": "git://github.com/ttahmouch/coast.git"
     },
     "dependencies": {
-        "slop": "0.0.1",
-        "hypermedia": "0.0.1"
+        "argo": "0.4.9",
+        "argo-url-router": "0.0.4",
+        "hypermedia": "1.0.0",
+        "slop": "0.0.1"
     },
     "keywords": [
         "hapi",
+        "coast",
         "hypermedia",
         "api",
         "rest",
         "restful",
         "http",
         "argo",
-        "express",
-        "naval"
+        "naval",
+        "navdata"
     ],
     "bugs": {
-        "url": "https://github.com/ttahmouch/hapi/issues"
+        "url": "https://github.com/ttahmouch/coast/issues"
     }
 }
