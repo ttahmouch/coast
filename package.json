@@ -1,47 +1,28 @@
 {
     "name": "coast",
-    "description": "Coast is a convention-over-configuration platform for building RESTful APIs with Node.JS and XHR.",
+    "description": "Open-source, full-stack, convention over configuration, hypermedia api framework.",
     "author": "Tony Tahmouch <tony@hapi.co>",
-    "licenses": [
-        {
-            "type": "MIT",
-            "url": "https://github.com/ttahmouch/coast/blob/master/LICENSE.md"
-        }
-    ],
-    "version": "1.0.0",
+    "license": "MIT",
+    "version": "2.0.0",
     "main": "index.js",
-    "bin": {
-        "coast": "./index.js"
-    },
-    "scripts": {
-        "test": "echo 'Error: no test specified' && exit 1"
-    },
-    "engines": {
-        "node": ">=0.10"
-    },
     "repository": {
         "type": "git",
-        "url": "git://github.com/ttahmouch/coast.git"
+        "url": "git://github.com/coastjs/coast.git"
+    },
+    "bugs": {
+        "url": "https://github.com/coastjs/coast/issues"
+    },
+    "bin": {
+        "api": "./index.js",
+        "coast": "./index.js"
+    },
+    "engines": {
+        "node": ">= 0.10.0"
     },
     "dependencies": {
-        "argo": "0.4.9",
-        "argo-url-router": "0.0.4",
-        "hypermedia": "1.0.0",
-        "slop": "0.0.1"
+        "express": "4.9.5",
+        "hypermedia": "2.0.1",
+        "uglify-js": "2.4.15"
     },
-    "keywords": [
-        "hapi",
-        "coast",
-        "hypermedia",
-        "api",
-        "rest",
-        "restful",
-        "http",
-        "argo",
-        "naval",
-        "navdata"
-    ],
-    "bugs": {
-        "url": "https://github.com/ttahmouch/coast/issues"
-    }
+    "keywords": [ "hapi", "coast", "hypermedia", "api", "rest", "restful", "http", "naval", "navdata" ]
 }
